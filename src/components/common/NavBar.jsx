@@ -32,9 +32,9 @@ export default function NavBar() {
   }, []);
 
   return (
-    <Container disableGutters maxWidth="xl">
+    <Container disableGutters maxWidth={false}>
       <AppBar component="nav">
-        <Toolbar>
+        <Toolbar disableGutters>
           <Grid container alignItems="center" spacing={2}>
             <Grid item>
               <IconButton

@@ -1,5 +1,6 @@
 import React from "react";
 
+import Container from "@mui/material/Container";
 import { createBrowserRouter, RouterProvider } from "react-router-dom";
 import { ThemeProvider } from "@mui/material/styles";
 
@@ -20,7 +21,9 @@ export default function App() {
   return (
     <ThemeProvider theme={theme}>
       <NavBar />
-      <RouterProvider router={router} />
+      <Container disableGutters maxWidth={false} sx={{ paddingTop: 10 }}>
+        <RouterProvider router={router} />
+      </Container>
     </ThemeProvider>
   );
 }
