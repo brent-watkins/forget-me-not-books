@@ -17,6 +17,7 @@ import ListItemButton from "@mui/material/ListItemButton";
 import ListItemText from "@mui/material/ListItemText";
 import MenuIcon from "@mui/icons-material/Menu";
 import Toolbar from "@mui/material/Toolbar";
+import Tooltip from "@mui/material/Tooltip";
 import Typography from "@mui/material/Typography";
 
 export default function NavBar() {
@@ -27,6 +28,20 @@ export default function NavBar() {
     []
   );
 
+  const getHref = useCallback((navItem) => {
+    switch (navItem) {
+      case "About":
+        return "/about";
+      case "Create New Book":
+        return "/create";
+      case "Home":
+        return "/";
+      case "View Your Books":
+        return "/view";
+      default:
+        return "/";
+    }
+  }, []);
   const handleToggleDrawer = useCallback(() => {
     setDrawerOpen((prev) => !prev);
   }, []);
@@ -52,25 +67,29 @@ export default function NavBar() {
             {navItems.map((item) => (
               <Grid item key={item}>
                 <Button
+                  href={getHref(item)}
                   sx={{ color: "black", display: { xs: "none", md: "block" } }}
                 >
                   {item}
                 </Button>
-                <IconButton
-                  aria-label={item}
-                  color="inherit"
-                  sx={{ display: { xs: "none", sm: "block", md: "none" } }}
-                >
-                  {item === "Home" ? (
-                    <HomeIcon />
-                  ) : item === "Create New Book" ? (
-                    <AddIcon />
-                  ) : item === "View Your Books" ? (
-                    <BookIcon />
-                  ) : item === "About" ? (
-                    <InfoIcon />
-                  ) : null}
-                </IconButton>
+                <Tooltip arrow disableInteractive title={item}>
+                  <IconButton
+                    aria-label={item}
+                    color="inherit"
+                    href={getHref(item)}
+                    sx={{ display: { xs: "none", sm: "block", md: "none" } }}
+                  >
+                    {item === "Home" ? (
+                      <HomeIcon />
+                    ) : item === "Create New Book" ? (
+                      <AddIcon />
+                    ) : item === "View Your Books" ? (
+                      <BookIcon />
+                    ) : item === "About" ? (
+                      <InfoIcon />
+                    ) : null}
+                  </IconButton>
+                </Tooltip>
               </Grid>
             ))}
           </Grid>
@@ -89,7 +108,10 @@ export default function NavBar() {
           <List>
             {navItems.map((item) => (
               <ListItem key={item} disablePadding>
-                <ListItemButton sx={{ textAlign: "center" }}>
+                <ListItemButton
+                  href={getHref(item)}
+                  sx={{ textAlign: "center" }}
+                >
                   {item === "Home" ? (
                     <HomeIcon />
                   ) : item === "Create New Book" ? (

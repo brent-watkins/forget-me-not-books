@@ -4,6 +4,7 @@ import Container from "@mui/material/Container";
 import { createBrowserRouter, RouterProvider } from "react-router-dom";
 import { ThemeProvider } from "@mui/material/styles";
 
+import Create from "./pages/Create";
 import Error from "./pages/Error";
 import Home from "./pages/Home";
 import NavBar from "./components/common/NavBar";
@@ -13,6 +14,11 @@ const router = createBrowserRouter([
   {
     path: "/",
     element: <Home />,
+    errorElement: <Error />,
+  },
+  {
+    path: "/create",
+    element: <Create />,
     errorElement: <Error />,
   },
 ]);
