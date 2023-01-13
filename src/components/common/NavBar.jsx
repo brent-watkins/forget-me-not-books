@@ -24,7 +24,7 @@ export default function NavBar() {
   const [drawerOpen, setDrawerOpen] = useState(false);
 
   const navItems = useMemo(
-    () => ["Home", "Create New Book", "View Your Books", "About"],
+    () => ["Home", "Create / Edit a Book", "View Your Books", "About"],
     []
   );
 
@@ -32,7 +32,7 @@ export default function NavBar() {
     switch (navItem) {
       case "About":
         return "/about";
-      case "Create New Book":
+      case "Create / Edit a Book":
         return "/create";
       case "Home":
         return "/";
@@ -81,7 +81,7 @@ export default function NavBar() {
                   >
                     {item === "Home" ? (
                       <HomeIcon />
-                    ) : item === "Create New Book" ? (
+                    ) : item === "Create / Edit a Book" ? (
                       <AddIcon />
                     ) : item === "View Your Books" ? (
                       <BookIcon />
@@ -114,7 +114,7 @@ export default function NavBar() {
                 >
                   {item === "Home" ? (
                     <HomeIcon />
-                  ) : item === "Create New Book" ? (
+                  ) : item === "Create / Edit a Book" ? (
                     <AddIcon />
                   ) : item === "View Your Books" ? (
                     <BookIcon />
