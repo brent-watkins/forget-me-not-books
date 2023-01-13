@@ -10,6 +10,7 @@ import Error from "./pages/Error";
 import Home from "./pages/Home";
 import NavBar from "./components/common/NavBar";
 import { theme } from "./assets/ColorTheme";
+import View from "./pages/View";
 
 const router = createBrowserRouter([
   {
@@ -20,6 +21,11 @@ const router = createBrowserRouter([
   {
     path: "/create",
     element: <Create />,
+    errorElement: <Error />,
+  },
+  {
+    path: "/view",
+    element: <View />,
     errorElement: <Error />,
   },
   {
