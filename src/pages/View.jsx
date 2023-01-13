@@ -1,11 +1,13 @@
 import React, { useCallback, useEffect, useState } from "react";
 
+import Button from "@mui/material/Button";
 import FormControl from "@mui/material/FormControl";
 import Grid from "@mui/material/Grid";
 import InputLabel from "@mui/material/InputLabel";
 import MenuItem from "@mui/material/MenuItem";
 import Pagination from "@mui/material/Pagination";
 import Select from "@mui/material/Select";
+import ShareIcon from "@mui/icons-material/Share";
 
 export default function View() {
   const [allBooks, setAllBooks] = useState([]);
@@ -50,6 +52,11 @@ export default function View() {
             ))}
           </Select>
         </FormControl>
+      </Grid>
+      <Grid item>
+        {selectedBook !== "" ? (
+          <Button endIcon={<ShareIcon />}>Share</Button>
+        ) : null}
       </Grid>
       <Grid item>
         {selectedBook !== "" ? (
