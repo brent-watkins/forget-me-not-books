@@ -16,6 +16,7 @@ import ListItem from "@mui/material/ListItem";
 import ListItemButton from "@mui/material/ListItemButton";
 import ListItemText from "@mui/material/ListItemText";
 import MenuIcon from "@mui/icons-material/Menu";
+import PersonIcon from "@mui/icons-material/Person";
 import Toolbar from "@mui/material/Toolbar";
 import Tooltip from "@mui/material/Tooltip";
 import Typography from "@mui/material/Typography";
@@ -24,7 +25,7 @@ export default function NavBar() {
   const [drawerOpen, setDrawerOpen] = useState(false);
 
   const navItems = useMemo(
-    () => ["Home", "Create / Edit a Book", "View Your Books", "About"],
+    () => ["Home", "Create / Edit a Book", "View Your Books", "About", "Log In"],
     []
   );
 
@@ -36,6 +37,8 @@ export default function NavBar() {
         return "/create";
       case "Home":
         return "/";
+      case "Log In":
+        return "/login";
       case "View Your Books":
         return "/view";
       default:
@@ -79,14 +82,16 @@ export default function NavBar() {
                     href={getHref(item)}
                     sx={{ display: { xs: "none", sm: "block", md: "none" } }}
                   >
-                    {item === "Home" ? (
-                      <HomeIcon />
+                    {item === "About" ? (
+                      <InfoIcon />
                     ) : item === "Create / Edit a Book" ? (
                       <AddIcon />
+                    ) : item === "Home" ? (
+                      <HomeIcon />
+                    ) : item === "Log In" ? (
+                      <PersonIcon />
                     ) : item === "View Your Books" ? (
                       <BookIcon />
-                    ) : item === "About" ? (
-                      <InfoIcon />
                     ) : null}
                   </IconButton>
                 </Tooltip>
@@ -112,14 +117,16 @@ export default function NavBar() {
                   href={getHref(item)}
                   sx={{ textAlign: "center" }}
                 >
-                  {item === "Home" ? (
-                    <HomeIcon />
+                  {item === "About" ? (
+                    <InfoIcon />
                   ) : item === "Create / Edit a Book" ? (
                     <AddIcon />
+                  ) : item === "Home" ? (
+                    <HomeIcon />
+                  ) : item === "Log In" ? (
+                    <PersonIcon />
                   ) : item === "View Your Books" ? (
                     <BookIcon />
-                  ) : item === "About" ? (
-                    <InfoIcon />
                   ) : null}
                   <ListItemText primary={item} />
                 </ListItemButton>
