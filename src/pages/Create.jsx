@@ -20,29 +20,35 @@ import SpeedDialIcon from "@mui/material/SpeedDialIcon";
 import SwipeableDrawer from "@mui/material/SwipeableDrawer";
 import TextField from "@mui/material/TextField";
 
+import SelectionModal from "../components/create/SelectionModal";
+
 export default function Create() {
   const [actionsOpen, setActionsOpen] = useState(false);
-  const [drawerOpen, setDrawerOpen] = useState(false);
   const [bookTitle, setBookTitle] = useState("");
+  const [drawerOpen, setDrawerOpen] = useState(false);
+  const [modalOpen, setModalOpen] = useState(true);
   const [pageToAdd, setPageToAdd] = useState("Photo");
 
+  const handleChangePageToAdd = useCallback((event) => {
+    setPageToAdd(event.target.value);
+  }, []);
   const handleChangeTitle = useCallback((event) => {
     setBookTitle(event.target.value);
   }, []);
   const handleCloseActions = useCallback(() => {
     setActionsOpen(false);
   }, []);
-  const handleOpenActions = useCallback(() => {
-    setActionsOpen(true);
-  }, []);
   const handleCloseDrawer = useCallback(() => {
     setDrawerOpen(false);
   }, []);
+  const handleCloseModal = useCallback(() => {
+    setModalOpen(false);
+  }, []);
+  const handleOpenActions = useCallback(() => {
+    setActionsOpen(true);
+  }, []);
   const handleOpenDrawer = useCallback(() => {
     setDrawerOpen(true);
-  }, []);
-  const handleChangePageToAdd = useCallback((event) => {
-    setPageToAdd(event.target.value);
   }, []);
 
   const actions = [
@@ -56,6 +62,7 @@ export default function Create() {
 
   return (
     <>
+      <SelectionModal handleClose={handleCloseModal} open={modalOpen} />
       <IconButton onClick={handleOpenDrawer}>
         <ChevronRightIcon />
       </IconButton>
