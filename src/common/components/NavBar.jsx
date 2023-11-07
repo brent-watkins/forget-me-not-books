@@ -30,7 +30,7 @@ export default function NavBar() {
   const getHref = useCallback((navItem) => {
     switch (navItem) {
       case "About":
-        return "/"; // Temporary path until "About" page is created
+        return "/about";
       case "Home":
         return "/";
       default:
