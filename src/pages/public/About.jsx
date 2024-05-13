@@ -64,9 +64,13 @@ export default function About() {
       </Grid>
       <Grid item>
         <Typography align="justify" marginX={3}>
-          Forget Me Not Books was created by Brent Watkins. You can see more of
-          Brent&apos;s work at his GitHub profile&nbsp;
-          <Link href="https://github.com/brent-watkins" target="_blank" rel="noopener noreferrer">
+          Forget Me Not Books was created by Brent Watkins and Taryn Wolfe. You
+          can see more of Brent&apos;s work at his GitHub profile&nbsp;
+          <Link
+            href="https://github.com/brent-watkins"
+            target="_blank"
+            rel="noopener noreferrer"
+          >
             here
           </Link>
           .
